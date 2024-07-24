@@ -20,7 +20,7 @@ interface BorderedCardProps extends Card {
   borderColor?: string;
 }
 
-interface TintedCardProps extends Card {
+export interface TintedCardProps extends Card {
   tintColor: string;
   cardType: 'tinted';
   image: string;
@@ -49,23 +49,26 @@ export default function Card(props: CardProps) {
 
 function TintedCard(props: TintedCardProps) {
   return (
-    <div className="p-4 relative overflow-hidden shadow-md max-w-[30vw] min-h-[20vh] rounded-lg bg-no-repeat bg-cover bg-center" style={{
+    <div className={`transition hover:scale-105 p-4 relative overflow-hidden shadow-md min-h-[20vh] max-h-[40vh] rounded-lg bg-no-repeat bg-cover bg-center ${props.className}`} style={{
       backgroundImage: `url(${props.image})`
     }}>
       <div className="absolute w-full h-full top-0 left-0 z-0 opacity-50 mix-blend-multiply" style={{
         backgroundColor: props.tintColor
       }}></div>
-      <div className="div absolute bottom-4 left-0 z-10 pl-4 text-white">
+      <div className="text-left absolute bottom-4 left-0 z-10 px-4 text-white">
         <div className="text-2xl font-bold">{props.title}</div>
         <div className="text-base">{props.description}</div>
       </div>
+      <a href={props.href} className="absolute w-full h-full top-0 left-0 z-20">
+        <span className="sr-only">Go to events page</span>
+      </a>
     </div>
   )
 }
 
 function BorderedCard(props: BorderedCardProps) {
   return (
-    <div className="p-4 bg-white shadow-md rounded-lg border-2" style={{
+    <div className={`p-4 bg-white shadow-md rounded-lg border-2 ${props.className}`} style={{
       borderColor: props.borderColor || 'black',
     }}>
       {props.children}
@@ -86,21 +89,20 @@ function PhotoCard(props: PhotoCardProps) {
     switch (props.photoLocation) {
       case "left": return 'rounded-l-lg max-w-[50%] w-full'
       case "right": return 'rounded-r-lg max-w-[50%] w-full'
-      case "top": return 'rounded-t-lg w-full h-1/2'
+      case "top": return 'rounded-t-lg w-full h-[15vh]'
     }
   }
 
   console.log(props.className)
 
   return (
-    <div className={`flex rounded-lg shadow-md ${getFlexDirectionFromPhotoProps()} w-full min-h-[30vh] ${props.className}`}>
-      <div className={`${getPhotoStylesFromPhotoProps()} shrink-0 bg-cover`} style={{
+    <div className={`bg-white min-h-[20vh] flex rounded-lg shadow-md ${getFlexDirectionFromPhotoProps()} w-full ${props.className}`}>
+      <div className={`${getPhotoStylesFromPhotoProps()} shrink-0 bg-cover bg-center`} style={{
         backgroundImage: `url(${props.image})`,
       }}>
       </div>
-      <div className="p-4">
+      <div className="p-4 text-left">
         {props.children}
-        <div>direction: {props.photoLocation}</div>
       </div>
     </div>
   )

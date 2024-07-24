@@ -1,36 +1,35 @@
-import Card from "./components/Card";
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
-export default function App() {
+function App() {
+  const [count, setCount] = useState(0)
+
   return (
-  <>
-    <a href="https://hackclub.com">
-      <img src="https://assets.hackclub.com/flag-orpheus-top.svg" alt="" className="ml-[5vw] h-[15vh] -translate-y-3 w-auto hover:rotate-[5deg] transition" />
-    </a>
-    <div className="px-10 space-y-5">
-      hello
-      <Card cardType="tinted" tintColor="red" title="Events" description="im so cool and special" image="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?cs=srgb&dl=pexels-bri-schneiter-28802-346529.jpg&fm=jpg" href="/" />
-      <Card cardType="bordered">
-        <h1 className="text-3xl font-bold text-red">hi! im a bordered card</h1>
-        <p className="text-base text-black">this is more lore about me</p>
-      </Card>
-      <div className="grid grid-cols-2 gap-5">
-        <Card cardType="photo" image="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?cs=srgb&dl=pexels-bri-schneiter-28802-346529.jpg&fm=jpg" photoLocation="left" className="border-2 border-black">
-          <h1 className="text-3xl font-bold text-red">hi! im a photo card</h1>
-          <p className="text-base text-black">this is more lore about me</p>
-        </Card>
-        <Card cardType="photo" image="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?cs=srgb&dl=pexels-bri-schneiter-28802-346529.jpg&fm=jpg" photoLocation="right">
-          <h1 className="text-3xl font-bold text-red">hi! im a photo card</h1>
-          <p className="text-base text-black">this is more lore about me</p>
-        </Card>
+    <>
+      <div>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
       </div>
-      <div className="grid grid-cols-3">
-        <Card cardType="photo" image="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?cs=srgb&dl=pexels-bri-schneiter-28802-346529.jpg&fm=jpg" photoLocation="top">
-          <h1 className="text-3xl font-bold text-red">hi! im a photo card</h1>
-          <p className="text-base text-black">this is more lore about me</p>
-        </Card>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.tsx</code> and save to test HMR
+        </p>
       </div>
-      
-    </div>
-</>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
   )
 }
+
+export default App
