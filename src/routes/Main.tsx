@@ -17,7 +17,7 @@ export default function App() {
       <div id="summary">
         <Card cardType="bordered" className="mt-4"> 
           <div id="jumbo" className="text-xl leading-tight mb-2 md:text-2xl font-bold text-left">
-            <span className="text-red">Athena</span>  is Hack Club's initiative to support girls and non-binary high schoolers learning to code.
+            <span className="text-red">Athena</span> is a group of initiatives at Hack Club that support girls and non-binary teenagers learning to code.
           </div>
           <div id="regular" className="text-base md:text-lg text-left leading-tight">
             From hosting in-person hackathons to virtual workshops, Hack Club is a place to become more technical and immerse yourself in coding.
