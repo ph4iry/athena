@@ -12,21 +12,17 @@ import Community from './routes/Community';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Root />,
   },
   {
-    path: "events",
+    path: '/events',
     element: <Events />,
   },
   {
-    path: "community",
+    path: '/community',
     element: <Community />,
-  },
-  // {
-  //   path: "code",
-  //   element: <Code />,
-  // }
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
