@@ -34,8 +34,8 @@ export default function Events() {
           <hr className="border border-black w-full translate-y-1.5" />
 
           <div className="w-full flex gap-6 pb-4 overflow-x-scroll lg:overflow-x-visible">
-            <UpcomingEvent name="SF" location="San Francisco, CA" time="Aug 2024" website="sf.hackclub.com" />
-            <UpcomingEvent name="Luna" location="New York City, NY" time="Nov 2024" website="sf.hackclub.com" />
+            <UpcomingEvent name="SF" location="San Francisco, CA" time="Sep 2024" website="golden.hackclub.com" />
+            <UpcomingEvent name="Luna" location="New York City, NY" time="Oct 2024" website="luna.hackclub.com" />
             <UpcomingEvent name="Toronto" location="Toronto, ON" time="May 2025" website="sf.hackclub.com" />
           </div>
         </div>
