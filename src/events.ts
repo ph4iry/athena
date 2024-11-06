@@ -259,6 +259,25 @@ const events: {
     ],
     photocreds: "Sophia Deltas",
   },
+  {
+    name: "Celestial",
+    location: "Toronto, ON",
+    accentColor: "#CBA8EB",
+    bgColor: "#FF7576",
+    tintColor: "#DAC8F7",
+    date: "October, 2024",
+    logo: "https://cloud-l52t5jjyt-hack-club-bot.vercel.app/0untitled_artwork_2_1.png",
+    cardLogo: "https://cloud-it4uuadox-hack-club-bot.vercel.app/8solstice.png",
+    github_link: "https://github.com/hackclub/solstice",
+    description:
+      "Celestial was a one-day learnathon in Etobicoke, ON, followed by a hackathon in Toronto, ON at Shopify headquarters!",
+    photos: [
+      "https://cloud-dvjf2azun-hack-club-bot.vercel.app/0img_4886.heic",
+      "https://cloud-dvjf2azun-hack-club-bot.vercel.app/1copy_of_dsc00068.jpg",
+      "https://cloud-dvjf2azun-hack-club-bot.vercel.app/2img_4781.heic",
+    ],
+    photocreds: "",
+  },
 ];
 
 export default events;
