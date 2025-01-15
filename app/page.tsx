@@ -14,7 +14,7 @@ export default async function Home() {
       <a href="https://hackclub.com" className="relative top-0 left-[5vw]">
         <Image src="https://assets.hackclub.com/flag-orpheus-top.svg" height={158} width={250} alt="" className="h-[15vh] -translate-y-3 w-auto hover:rotate-[5deg] transition" />
       </a>
-      <div className="text-left px-6 lg:px-32">
+      <div className="text-left px-6 lg:px-32 mb-16">
         <div className="text-6xl md:text-9xl font-bold">Athena</div>
         <div className="text-xl md:text-3xl font-bold mt-2">is a group of programs at Hack Club to empower girls and nonbinary teenagers to code.</div>
         <div className="text-base md:text-lg">From hosting in-person hackathons to virtual workshops, Hack Club is a place to become more technical and immerse yourself in coding.</div>
