@@ -3,6 +3,7 @@ import Spotlight from "@/components/Spotlight";
 import { AirtableSpotightManager } from "@/utils/airtable";
 import { SpotlightPost } from "@/utils/spotlight";
 import Image from "next/image";
+import Link from "next/link";
  
 export const revalidate = 3600
 
@@ -11,9 +12,9 @@ export default async function Home() {
   const post: SpotlightPost = data.fields as unknown as SpotlightPost;
   return (
     <>
-      <a href="https://hackclub.com" className="relative top-0 left-[5vw]">
+      <Link href="https://hackclub.com" className="relative top-0 left-[5vw]">
         <Image src="https://assets.hackclub.com/flag-orpheus-top.svg" height={158} width={250} alt="" className="h-[15vh] -translate-y-3 w-auto hover:rotate-[5deg] transition" />
-      </a>
+      </Link>
       <div className="text-left px-6 lg:px-32 mb-16">
         <div className="text-6xl md:text-9xl font-bold">Athena</div>
         <div className="text-xl md:text-3xl font-bold mt-2">is a group of programs at Hack Club to empower girls and nonbinary teenagers to code.</div>
@@ -23,7 +24,7 @@ export default async function Home() {
             <div className="text-lg md:text-xl font-bold text-white mb-3">Our most recent event:</div>
             <Image alt="Ascend Event" src="https://cloud-rnls34zc7-hack-club-bot.vercel.app/0reduced-whitespace-ascend-logo.png" className="max-h-[15vh] w-auto" width={1121} height={390} />
             <div className="text-white md:w-3/5 line-clamp-2">Ascend was Hack Club&apos;s first-ever Days of Service Summit! Held in Los Angeles, this event brought together 50 girls and non-binary Hack Club members from across the U.S. and internationally for a hackathon hosted at SpaceX, along with a weekend filled with fun and growth. This summit became the largest teenage girl hackathon in the U.S. this year, in partnership with Girls Who Code and Kode with Klossy.</div>
-            <a href="https://ascend.hackclub.com" className="text-white italic underline inline-block mt-3 text-lg underline-offset-4 decoration-transparent transition-all hover:decoration-white">Learn more about Ascend</a>
+            <Link href="https://ascend.hackclub.com" className="text-white italic underline inline-block mt-3 text-lg underline-offset-4 decoration-transparent transition-all hover:decoration-white">Learn more about Ascend</Link>
           </div>
           <Image alt="" src="https://ascend.hackclub.com/moon.png" className="h-[150%] w-auto absolute -top-[10vh] -right-[10vh] opacity-50 md:opacity-100" height={800} width={800}></Image>
         </div>

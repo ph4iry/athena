@@ -5,6 +5,7 @@ import Marquee from 'react-marquee-slider';
 
 import { FaCalendarDay, FaLocationDot } from "react-icons/fa6";
 import Image from "next/image";
+import Link from "next/link";
 
 type EventInfo = {
   accentColor: string;
@@ -65,7 +66,7 @@ export default function PastEvent({ accentColor, bgColor, tintColor, name, date,
                   {description}
                 </div>
                 <div className="mt-4 mb-10 md:mb-0">
-                  <a className="underline" href={github_link}>View details on planning</a>
+                  <Link className="underline" href={github_link}>View details on planning</Link>
                 </div>
               </div>
               <div className="md:w-1/2 lg:w-3/5 p-4 flex items-center">

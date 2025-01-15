@@ -28,7 +28,7 @@ export default async function EventPage() {
         <div className="mt-4 flex flex-col items-center">
           <div className="w-full items-start">
             <div className="text-3xl font-bold">Upcoming Events</div>
-            <div className="text-base">Run your own Athena event by joining our community in the <a href="https://hackclub.com/slack" className="underline">Hack Club Slack!</a></div>
+            <div className="text-base">Run your own Athena event by joining our community in the <Link href="https://hackclub.com/slack" className="underline">Hack Club Slack!</Link></div>
           </div>
           <hr className="border border-black w-full translate-y-1.5" />
 

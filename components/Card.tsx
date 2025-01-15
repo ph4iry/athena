@@ -1,4 +1,5 @@
 'use client';
+import Link from "next/link";
 import { ReactNode } from "react";
 
 interface Card {
@@ -59,9 +60,9 @@ function TintedCard(props: TintedCardProps) {
         <div className="text-2xl font-bold">{props.title}</div>
         <div className="text-base">{props.description}</div>
       </div>
-      <a href={props.href} className="absolute w-full h-full top-0 left-0 z-20">
+      <Link href={props.href} className="absolute w-full h-full top-0 left-0 z-20">
         <span className="sr-only">Go to events page</span>
-      </a>
+      </Link>
     </div>
   )
 }
@@ -92,7 +93,7 @@ function PhotoCard(props: PhotoCardProps) {
       case "top": return 'rounded-t-lg w-full h-[15vh]'
     }
   }
-  
+
   return (
     <div className={`bg-white min-h-[20vh] flex rounded-lg shadow-md ${getFlexDirectionFromPhotoProps()} w-full ${props.className}`}>
       <div className={`${getPhotoStylesFromPhotoProps()} shrink-0 bg-cover bg-center`} style={{
