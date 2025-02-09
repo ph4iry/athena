@@ -1,7 +1,7 @@
 import Background from "@/components/Background";
 import Card from "@/components/Card";
 import UpcomingEvent from "@/components/UpcomingEvent";
-import { getEvents, getUpcomingEvents } from "@/utils/eventManagement";
+import { getEvents, getUpcomingEvents, getRecentEvents } from "@/utils/eventManagement";
 import Events from "@/components/Events";
 // import useImagePreloader from "../hooks/useImagePreloader";
 import { FaArrowLeftLong } from "react-icons/fa6";
@@ -13,6 +13,7 @@ export const revalidate = 3600;
 export default async function EventPage() {
   const events = await getEvents();
   const upcomingEvents = getUpcomingEvents();
+  const recentEvents = await getRecentEvents();
   
   return (
     <Background>
@@ -35,12 +36,12 @@ export default async function EventPage() {
           <div className="w-full flex gap-6 pb-4 overflow-x-scroll lg:overflow-x-visible">
             {upcomingEvents.slice(0, 3).map((e, i) => (
               <Fragment key={i}>
-                <UpcomingEvent name={e.name} location={e.location} time={e.date} />
+                <UpcomingEvent name={e.name} location={e.location || ''} time={e.startDate || ''} />
               </Fragment>
             ))}
           </div>
         </div>
-        <Events data={events} />
+        <Events data={recentEvents} />
       </div>
     </Background>
   )

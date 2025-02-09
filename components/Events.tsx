@@ -1,7 +1,8 @@
 'use client';
-import { EventWithColors } from "@/events";
+import { EventWithColors } from "@/types";
 import { Fragment, useState } from "react";
 import PastEvent from "./PastEvent";
+import { hackClubLogo, hackClubGitHub, defaultAthenaPhoto } from '@/constants'
 
 export default function Events({ data }: { data: EventWithColors[] } ) {
   const [showAllEvents, setShowAllEvents] = useState(false);
@@ -16,13 +17,13 @@ export default function Events({ data }: { data: EventWithColors[] } ) {
         tintColor={data[data.length - 1].tagColor || 'black'}
         className="col-span-2 row-span-2"
         name={data[data.length - 1].name}
-        location={data[data.length - 1].location}
-        date={data[data.length - 1].date}
-        logo={data[data.length - 1].logo}
-        github_link={data[data.length - 1].githubLink}
-        description={data[data.length - 1].description}
-        photos={data[data.length - 1].photos}
-        photocreds={data[data.length - 1].photocreds}
+        location={data[data.length - 1].location || ''}
+        date={data[data.length - 1].startDate || ''}
+        logo={data[data.length - 1].logo || hackClubLogo}
+        github_link={data[data.length - 1].githubLink || hackClubGitHub}
+        description={data[data.length - 1].description || ''}
+        photos={data[data.length - 1].photos || [defaultAthenaPhoto]}
+        photocreds={data[data.length - 1].photocreds || ''}
         mostRecent
       />
       
@@ -35,17 +36,18 @@ export default function Events({ data }: { data: EventWithColors[] } ) {
               tintColor={event.tagColor || 'black'}
               className="row-span-2 md:row-span-1 col-span-2"
               name={event.name}
-              location={event.location}
-              date={event.date}
-              logo={event.logo}
-              github_link={event.githubLink}
-              description={event.description}
-              photos={event.photos}
-              photocreds={event.photocreds}
+              location={event.location || ''}
+              date={event.startDate || ''}
+              logo={event.logo || hackClubLogo}
+              github_link={event.githubLink || hackClubGitHub}
+              description={event.description || ''}
+              photos={event.photos || [defaultAthenaPhoto]}
+              photocreds={event.photocreds || ''}
             />
           </Fragment>
         )
       })}
+
       <div className={showAllEvents ? "grid gap-6 col-span-2 md:col-span-4 grid-cols-subgrid auto-rows-auto" : "hidden"}>
         {data.slice().reverse().slice(3).map((event, i) => {
           const span = (() => {
@@ -64,13 +66,13 @@ export default function Events({ data }: { data: EventWithColors[] } ) {
                 tintColor={event.tagColor || 'black'}
                 className={span}
                 name={event.name}
-                location={event.location}
-                date={event.date}
-                logo={event.logo}
-                github_link={event.githubLink}
-                description={event.description}
-                photos={event.photos}
-                photocreds={event.photocreds}
+                location={event.location || ''}
+                date={event.startDate || ''}
+                logo={event.logo || hackClubLogo}
+                github_link={event.githubLink || hackClubGitHub}
+                description={event.description || ''}
+                photos={event.photos || [defaultAthenaPhoto]}
+                photocreds={event.photocreds || ''}
               />
             </Fragment>
           )

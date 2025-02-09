@@ -6,6 +6,7 @@ import Marquee from 'react-marquee-slider';
 import { FaCalendarDay, FaLocationDot } from "react-icons/fa6";
 import Image from "next/image";
 import Link from "next/link";
+import { hackClubLogo } from '@/constants'
 
 type EventInfo = {
   accentColor: string;
@@ -22,19 +23,22 @@ type EventInfo = {
   description: string;
   className: string;
   mostRecent?: boolean;
+  status?: string;
 };
 
-export default function PastEvent({ accentColor, bgColor, tintColor, name, date, location, github_link, logo, cardLogo, photos, photocreds, description, className, mostRecent = false }: EventInfo) {
+export default function PastEvent({ accentColor, bgColor, tintColor, name, date, status, location, github_link, logo, cardLogo, photos, photocreds, description, className, mostRecent = false }: EventInfo) {
   const [modalOpen, setModalOpen] = useState(false);
+  const pastEventImage = photos[0]
   
   return (
+    <>
     <>
       <TintedEventCard
         className={className}
         tintColor={tintColor || 'black'}
         accentColor={accentColor}
         bgColor={bgColor}
-        image={photos[0]}
+        image={pastEventImage}
         href={"#"}
         title={name}
         description={description}
@@ -49,6 +53,8 @@ export default function PastEvent({ accentColor, bgColor, tintColor, name, date,
         mostRecent={mostRecent}
         onClick={() => {setModalOpen(true) }}
       />
+
+      
       <Dialog open={modalOpen} onClose={() => setModalOpen(false)} className="transition delay-0 duration-300 ease-out data-[closed]:opacity-0 z-50" transition>
         <div className="fixed inset-0 bg-black/25 background-blur-sm flex w-screen items-center justify-center p-6 md:p-16">
           <DialogPanel className="relative w-[85vw] h-[80vh] bg-white rounded-lg">
@@ -64,6 +70,7 @@ export default function PastEvent({ accentColor, bgColor, tintColor, name, date,
                 </div>
                 <div className="mt-4">
                   {description}
+                  {JSON.stringify(photos)}
                 </div>
                 <div className="mt-4 mb-10 md:mb-0">
                   <Link className="underline" href={github_link}>View details on planning</Link>
@@ -88,6 +95,7 @@ export default function PastEvent({ accentColor, bgColor, tintColor, name, date,
           </DialogPanel>
         </div>
       </Dialog>
+      </>
     </>
   );
 }
@@ -103,13 +111,14 @@ interface BaseEventCardProps {
 type TintedEventCardProps = BaseEventCardProps & EventInfo & { onClick: () => void, mostRecent: boolean };
 
 function TintedEventCard(props: TintedEventCardProps) {
+  
   return (
     <div className={`border-2 group transition-all hover:scale-105 p-4 relative overflow-hidden shadow-md min-h-[20vh] rounded-lg bg-no-repeat bg-contain bg-center ${props.className} cursor-pointer`} style={props.cardLogo ? {
       backgroundImage: `url(${props.cardLogo})`,
       backgroundColor: props.bgColor || 'white',
     } : {
       backgroundImage: `url(${props.logo})`,
-      backgroundColor: !props.logo.endsWith('jpg') ? props.bgColor : 'white',
+      backgroundColor: props.logo && !props.logo.endsWith('jpg') ? props.bgColor : 'white',
     }} onClick={props.onClick}>
       <div className="absolute w-[105%] h-[105%] top-0 left-0 z-0 group-hover:opacity-100 opacity-0 transition bg-cover bg-center bg-no-repeat bg-origin-border" style={{
         backgroundImage: `url(${props.image})`,
@@ -123,6 +132,7 @@ function TintedEventCard(props: TintedEventCardProps) {
           <span className="text-lg px-4 py-0.5 rounded-full" style={{
             backgroundColor: `${props.accentColor || '#000000'}50`,
           }}>{props.location}</span>
+          
           <span className="text-lg px-4 py-0.5 rounded-full" style={{
             backgroundColor: `${props.accentColor || '#000000'}50`,
           }}>{props.date}</span>
